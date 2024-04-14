@@ -1,58 +1,175 @@
 {
-    "Title": "Campus Life on the West Side",
-    "Credits": "Created by Adam Smith (amsmith@ucsc.edu).",
-    "InitialLocation": "Kresge",
+    "Title": "Date with Death",
+    "Credits": "By Xavier Austin (xaustin@ucsc.edu).",
+    "InitialLocation": "Preamble",
     "Locations": {
-        "Kresge": {
-            "Body": "This is Kresge College, lots of nice trees.",
+        "End":{
+            "Body":"So, yeah... It turns out a metaphysical concept whose whole MO is killing people is kinda a garbage date. Major yikes! Kinda cringe! You're not sure why you didn't suspect as much sooner, but hey, you win some- you lose some; at least you got a cute cat out of it (oh yeah the cat's fine btw).",
+            "Image": "background1.png"
+        },
+        "Void5":{
+            "Body":"You: OK bye! :)",
+            "Image": "death.png",
             "Choices": [
                 {
-                    "Text": "South",
-                    "Target": "Porter"
+                    "Text": "Continue",
+                    "Target": "End"
                 }
             ]
         },
-        "Porter": {
-            "Body": "This is Porter College, the trees are nice here too.",
+        "Void4":{
+            "Body":"Death: What?",
+            "Image": "death.png",
             "Choices": [
                 {
-                    "Text": "North",
-                    "Target": "Kresge"
+                    "Text": "Continue",
+                    "Target": "Void5"
+                }
+            ]
+        },
+        "Void3":{
+            "Body":"You: Oh dang! You suck! :(",
+            "Image": "death.png",
+            "Choices": [
+                {
+                    "Text": "Continue",
+                    "Target": "Void4"
+                }
+            ]
+        },
+        "Void2":{
+            "Body":"Death: *Chortles* Pronouns? What a most comical jest, Mortal- my hats off to thee. Moreover, this puts me in the mind of an Andrew Tate lecture I watched- verily you must be familiar?",
+            "Image": "death.png",
+            "Choices": [
+                {
+                    "Text": "Continue",
+                    "Target": "Void3"
+                }
+            ]
+        },
+        "Void1":{
+            "Body":"You: Name's Dee, Big Boy~. Oh, and it's cool cuz I didn't tell you, but I don't super like being called mister- my pronouns are-",
+            "Image": "death.png",
+            "Choices": [
+                {
+                    "Text": "Continue",
+                    "Target": "Void2"
+                }
+            ]
+        },
+        "Void":{
+            "Body":"Death: Mortal. For your crimes against life itself- oh, it's you. I appreciate your willingness to call me at work- uh- Mr. Erie was it? Appologies if doing so was a hassle.",
+            "Image": "death.png",
+            "Choices": [
+                {
+                    "Text": "Continue",
+                    "Target": "Void1"
+                }
+            ]
+        },
+        "Preamble": {
+            "Body": "You: *Yawning sounds* ... *More yawning* ... *Have you watched Yawn of the Dead? I hear it's really good.* ...",
+            "Image": "background1.png",
+            "Choices": [
+                {
+                    "Text": "Continue",
+                    "Target": "Prologue"
+                }
+            ]
+        },
+        "Prologue": {
+            "Body": "You: Oh! What's this?! Today's the day I set up that date with death! I'm so excited- he's so hot and slay and stuff. Anyway, to get ready I gotta commit a crime against life itself- which is weird, but ignoring any and all red flags- seems easy enough for someone like me!",
+            "Image": "background1.png",
+            "Choices": [
+                {
+                    "Text": "Continue",
+                    "Target": "Prologue1"
+                }
+            ]
+        },
+        "Prologue1": {
+            "Body": "You: If I remember my highschool physics, I can whip up a DIY teslatron and make Schrodinger's cat- which, as everyone knows, is the most easily made very real cat and not just a thought experiment. Yup! Anyway...",
+            "Image": "background1.png",
+            "Choices": [
+                {
+                    "Text": "Continue",
+                    "Target": "Bedroom"
+                }
+            ]
+        },
+        "Bedroom": {
+            "Body": "You are in your bedroom. It's got a bed in it and it does loosely meet the description of a room.",
+            "Image": "background1.png",
+            "Choices": [
+                {
+                    "Text": "Go to the Washroom",
+                    "Target": "Washroom"
                 },
                 {
-                    "Text": "South",
-                    "Target": "Rachel Carson"
-                }
-            ]
-        },
-        "Rachel Carson": {
-            "Body": "Rachel Carson College, more sun and fewer trees.",
-            "Choices": [
-                {
-                    "Text": "North",
-                    "Target": "Porter"
+                    "Text": "Go to the Living Room",
+                    "Target": "Living Room"
                 },
                 {
-                    "Text": "South",
-                    "Target": "Oakes"
-                }
-            ]
-        },
-        "Oakes": {
-            "Body": "Oakes College, even the buildings have tree bark on them.",
-            "Choices": [
-                {
-                    "Text": "North",
-                    "Target": "Rachel Carson"
+                    "Text": "Jump out of the window",
+                    "Target": "Alley"
                 },
                 {
-                    "Text": "South",
-                    "Target": "Beyond"
+                    "Text": "Finish the game",
+                    "Target": "Void"
                 }
             ]
         },
-        "Beyond": {
-            "Body": "Grass, don't forget to check for ticks!"
+        "Washroom": {
+            "Body": "You enter the washroom. These are very common in Canada- the place you live- this game takes place in Canada.",
+            "Choices": [
+                {
+                    "Text": "Go to the Bedroom",
+                    "Target": "Bedroom"
+                },
+                {
+                    "Text": "Go to the Living Room",
+                    "Target": "Living Room"
+                }
+            ]
+        },
+        "Living Room": {
+            "Body": "This is your living room. Maybe, after today, you should call it a \"dying room?\" Haha! Ammirite...? Actually no, because that'd be stupid.",
+            "Choices": [
+                {
+                    "Text": "Go to the Bedroom",
+                    "Target": "Bedroom"
+                },
+                {
+                    "Text": "Go to the Kitchen",
+                    "Target": "Kitchen"
+                },
+                {
+                    "Text": "Go to the Washroom",
+                    "Target": "Washroom"
+                }
+            ]
+        },
+        "Kitchen": {
+            "Body": "Ah yes, the kitchen. A place of dinning and socratic questions such as \"Why do they call it an oven when you of in cold food?\" Truely a place of majesty.",
+            "Choices": [
+                {
+                    "Text": "Go to the Alley",
+                    "Target": "Alley"
+                },
+                {
+                    "Text": "Go to the Living Room",
+                    "Target": "Living Room"
+                }
+            ]
+        },
+        "Alley": {
+            "Body": "This is the alley way outside your house. It wasn't this messy- was it? You can't really say; you don't get out much. Oh hey there's a cat here!",
+            "Choices": [
+                {
+                    "Text": "Go to the Kitchen",
+                    "Target": "Kitchen"
+                }
+            ]
         }
     }
 }
