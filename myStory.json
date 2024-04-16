@@ -4,12 +4,12 @@
     "InitialLocation": "Preamble",
     "Locations": {
         "End":{
-            "Body":"So, yeah... It turns out a metaphysical concept whose whole MO is killing people is kinda a garbage date. Major yikes! Kinda cringe! You're not sure why you didn't suspect as much sooner, but hey, you win some- you lose some; at least you got a cute cat out of it (oh yeah the cat's fine btw).",
+            "Body":"So, yeah... It turns out a metaphysical concept whose whole MO is killing people is kinda a garbage date. Major yikes! Kinda cringe! You're not sure why you didn't suspect as much sooner, but hey, you win some- you lose some; at least you got a cute cat out of it- oh yeah the cat's fine btw.",
             "Image": "background1.png"
         },
         "Void5":{
             "Body":"You: OK bye! :)",
-            "Image": "death.png",
+            "Image": "deathButBad.png",
             "Choices": [
                 {
                     "Text": "Continue",
@@ -19,7 +19,7 @@
         },
         "Void4":{
             "Body":"Death: What?",
-            "Image": "death.png",
+            "Image": "deathButBad.png",
             "Choices": [
                 {
                     "Text": "Continue",
@@ -29,7 +29,7 @@
         },
         "Void3":{
             "Body":"You: Oh dang! You suck! :(",
-            "Image": "death.png",
+            "Image": "deathButBad.png",
             "Choices": [
                 {
                     "Text": "Continue",
@@ -38,8 +38,8 @@
             ]
         },
         "Void2":{
-            "Body":"Death: *Chortles* Pronouns? What a most comical jest, Mortal- my hats off to thee. Moreover, this puts me in the mind of an Andrew Tate lecture I watched- verily you must be familiar?",
-            "Image": "death.png",
+            "Body":"Death: *Scoffs* Pronouns? What a funny joke! Hats off to you mortal! Moreover, this puts me in the mind of an Andrew Tate lecture I watched- certainly you're familiar?",
+            "Image": "deathButBad.png",
             "Choices": [
                 {
                     "Text": "Continue",
@@ -58,7 +58,7 @@
             ]
         },
         "Void":{
-            "Body":"Death: Mortal. For your crimes against life itself- oh, it's you. I appreciate your willingness to call me at work- uh- Mr. Erie was it? Appologies if doing so was a hassle.",
+            "Body":"Death: Mortal. For your crimes against life itself- oh, it's you. I appreciate your willingness to call me at work- uh- Mr. Erie was it? Sorry for the hasle.",
             "Image": "death.png",
             "Choices": [
                 {
@@ -68,7 +68,7 @@
             ]
         },
         "Preamble": {
-            "Body": "You: *Yawning sounds* ... *More yawning* ... *Have you watched Yawn of the Dead? I hear it's really good.* ...",
+            "Body": "You: *Yawning sounds* ... *More yawning* ... *Have you watched Yawn of the Dead? I hear it's really good* ... *yawn*",
             "Image": "background1.png",
             "Choices": [
                 {
@@ -78,7 +78,7 @@
             ]
         },
         "Prologue": {
-            "Body": "You: Oh! What's this?! Today's the day I set up that date with death! I'm so excited- he's so hot and slay and stuff. Anyway, to get ready I gotta commit a crime against life itself- which is weird, but ignoring any and all red flags- seems easy enough for someone like me!",
+            "Body": "You: Oh! What's this?! Today's the day I set up that Date with Death! I'm so excited- he's so hot and slay and stuff. The hitch is: to get ready I gotta commit a crime against life itself- which is weird, but ignoring any and all red flags- seems easy enough for someone like me!",
             "Image": "background1.png",
             "Choices": [
                 {
@@ -88,7 +88,7 @@
             ]
         },
         "Prologue1": {
-            "Body": "You: If I remember my highschool physics, I can whip up a DIY teslatron and make Schrodinger's cat- which, as everyone knows, is the most easily made very real cat and not just a thought experiment. Yup! Anyway...",
+            "Body": "You: If I remember my highschool physics, I can whip up a DIY teslatron and make Schrodinger's cat- which, as everyone knows, is the most easily-made, extra-real life-crime you can commit, and not just a thought experiment. Yup! Anyway, where to start...?",
             "Image": "background1.png",
             "Choices": [
                 {
@@ -98,7 +98,7 @@
             ]
         },
         "Bedroom": {
-            "Body": "You are in your bedroom. It's got a bed in it and it does loosely meet the description of a room.",
+            "Body": "You are in your bedroom. It's got a bed in it and it does loosely meet the description of a room. \n(Click on the glowy stuff to play... Or don't... I'm not your dad.)",
             "Image": "background1.png",
             "Choices": [
                 {
@@ -114,29 +114,31 @@
                     "Target": "Alley"
                 },
                 {
-                    "Text": "Finish the game",
+                    "Text": "Inspect Blueprints",
                     "Target": "Void"
                 }
             ]
         },
         "Washroom": {
             "Body": "You enter the washroom. These are very common in Canada- the place you live- this game takes place in Canada.",
+            "Image": "background2.png",
             "Choices": [
                 {
                     "Text": "Go to the Bedroom",
                     "Target": "Bedroom"
                 },
                 {
-                    "Text": "Go to the Living Room",
+                    "Text": "Visit the Living Room",
                     "Target": "Living Room"
                 }
             ]
         },
         "Living Room": {
             "Body": "This is your living room. Maybe, after today, you should call it a \"dying room?\" Haha! Ammirite...? Actually no, because that'd be stupid.",
+            "Image": "background5.png",
             "Choices": [
                 {
-                    "Text": "Go to the Bedroom",
+                    "Text": "Go back to the Bedroom",
                     "Target": "Bedroom"
                 },
                 {
@@ -144,29 +146,31 @@
                     "Target": "Kitchen"
                 },
                 {
-                    "Text": "Go to the Washroom",
+                    "Text": "Enter the Washroom",
                     "Target": "Washroom"
                 }
             ]
         },
         "Kitchen": {
             "Body": "Ah yes, the kitchen. A place of dinning and socratic questions such as \"Why do they call it an oven when you of in cold food?\" Truely a place of majesty.",
+            "Image": "background4.png",
             "Choices": [
                 {
                     "Text": "Go to the Alley",
                     "Target": "Alley"
                 },
                 {
-                    "Text": "Go to the Living Room",
+                    "Text": "Tour the Living Room",
                     "Target": "Living Room"
                 }
             ]
         },
         "Alley": {
             "Body": "This is the alley way outside your house. It wasn't this messy- was it? You can't really say; you don't get out much. Oh hey there's a cat here!",
+            "Image": "background3.png",
             "Choices": [
                 {
-                    "Text": "Go to the Kitchen",
+                    "Text": "Go back Inside",
                     "Target": "Kitchen"
                 }
             ]
