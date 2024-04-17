@@ -1,9 +1,21 @@
 class Inventory {
-    constructor(){
+    constructor(container,engine){
         this.stuff = [];
+        this.containter = container;
+        this.engine = engine;
     }
     addItem(item){
         this.stuff.push(item);
+        let itemVisual = document.createElement("button");
+        itemVisual.id = item;
+        itemVisual.style =
+            `height: 12vmin;
+            width: 12vmin;
+            background:url(items/ui/`+item+`.png);`;
+        this.containter.appendChild(itemVisual);
+        itemVisual.onclick = () => {
+            this.engine.drawText("You: "+this.describeItem(item));
+        }
     }
     hasItem(item){
         for (let i of this.stuff){
@@ -13,28 +25,26 @@ class Inventory {
         return false;
     }
     removeItem(item){
-        temp = []
+        let temp = []
         for (let i of this.stuff){
             if (i != item)
-                temp.push(item);
+                temp.push(i);
         }
-        this.stuff = temp
-    }
-    removeNumOfItem(item,number){
-        temp = []
-        for (let i of this.stuff){
-            if ((i != item) || (!number))
-                temp.push(item);
-            else
-                number --;
-        }
-        this.stuff = temp
+        this.stuff = temp;
+        let itemVisual = document.getElementById(item);
+        console.log(itemVisual);
+        if (itemVisual)
+            itemVisual.parentNode.removeChild(itemVisual);
     }
     describeItem(item){
         switch(item){
+            case "House Keys":
+                return "Like normal keys but house-y-er!";
             case "Dryer Lint":
                 return "An allergy-inducing toxin produced in self-defense when humans attempt to bereave dryers of their clothing innards.";
             case "Atom with Spin":
+                this.removeItem("Atom with Spin")
+                this.addItem("Atom")
                 return "I could probably get a similar effect by flipping a coin blindfolded, but I'm broke. Also, I probably shouldn't have looked at these since observing them colapses the wave function.";
             case "Atom":
                 return "100 picometers of everyones favorite flavors of quarks. Perfect for splitting with a friend!";
@@ -56,13 +66,17 @@ class Inventory {
                 return "Dihydrogen Monoxide constrained to a set volume! Oh, how I love playing god!";
             case "Ice Tray":
                 return "A plastic tray with skull shaped patterns in each of the holes. I'd fill this with water but my water is broken. It's supposed to be a liquid but it comes out of the faucet as a supercritical fluid!";
-            case "Ice Ice Baby - Vanilla Ice":
+            case "Ice Ice Baby":
                 return "The debut single by American rapper Vanilla Ice, K. Kennedy and DJ Earthquake. It's melting a little but it's still cold enough to get the job done.";
             case "Bucket Cat":
                 return "Buckets hold liquids and cats are one of those! A match made in heaven!";
             case "Cat Bucket":
+                this.removeItem("Cat Bucket")
+                this.addItem("Bucket Cat")
                 return "Hmm, that doesn't look quite right...";
             case "Cat & Bucket":
+                this.removeItem("Cat & Bucket")
+                this.addItem("Cat Bucket")
                 return "Man, I sure wish there was some kind of holding receptacle I could put this cat in so I wouldn't have to hold both it and this bucket... Wait, I have an idea!";
             case "Lid":
                 return "This is a lid to an old tupperware container I had. I don't have the container part since there was a big bug on it once, and so I took the most reasonable course of action: I threw the whole thing out the window and then went outside and lit it on fire.";
@@ -75,9 +89,6 @@ class Inventory {
             default:
                 return "Hmm, looks like this item is missing a description! Looks like somebody doesn't know how to program.";
         }
-    }
-    drawItems(){
-
     }
 }
 
@@ -92,7 +103,8 @@ class Engine {
         this.firstSceneClass = firstSceneClass;
         this.storyDataUrl = storyDataUrl;
 
-        this.inventory = new Inventory();
+        this.inventoryContainer = document.createElement("div");
+        this.inventory = new Inventory(this.inventoryContainer,this);
 
         this.header = document.body.appendChild(document.createElement("h1"));
         this.output = document.body.appendChild(document.createElement("div"));
@@ -124,24 +136,32 @@ class Engine {
 
     gotoScene(sceneClass, data) {
         this.scene = new sceneClass(this);
+        while(this.actionsContainer.firstChild) {
+            this.actionsContainer.removeChild(this.actionsContainer.firstChild)
+        }
         this.scene.create(data);
     }
 
     addChoice(action, data) {
+        if (!action)
+            return;
         //modified to display images occasionally
         let button = this.actionsContainer.appendChild(document.createElement("button"));
         button.innerText = action;
         let toggleAppear = 1;
         let temp = 
-            `color:#d0ffe2;
+            `position:absolute;
+            color:#d0ffe2;
             background-color: transparent;
+            background:url("items/playarea/shimmer.png");
             border: 0;
             font-family: 'Comic Sans MS','Chalkboard SE', 'Comic Neue',cursive;
-            font-size:2vmin;
+            font-size:0vmin;
             margin:0;
             padding:0;
-            opacity:0;
             justify-content: center;
+            background-repeat: no-repeat;
+            background-size:contain;
             text-shadow:
                 0.3vmin  0.0vmin  0 #72708c,
                 -0.3vmin 0.0vmin  0 #72708c,
@@ -152,74 +172,97 @@ class Engine {
                 -0.2vmin 0.2vmin  0 #72708c,
                 0.2vmin -0.2vmin  0 #72708c;`;
         switch (action){
-            case "Go to the Washroom":
-                temp +=
-                    `position:absolute;
-                    color:#ffd5c9;
-                    border: 0.3vmin solid red;
-                    top:32%;
-                    left:42%;
-                    width:11%;
-                    height:26%;`;
+            //Things & Interactable Elements
+            //bedroom
+            case "Inspect Blueprints":
+                temp += "top:31%; left:55%; width:18%; height:20%;";
                 break;
-            case "Go to the Living Room":
-                temp +=
-                    `position:absolute;
-                    color:#ffd5c9;
-                    border: 0.3vmin solid red;
-                    top:34%;
-                    left:76%;
-                    width:11%;
-                    height:28%;`;
+            //Washroom
+            case "???":
+                temp += "top:95%; left:95%; width:5%; height:5%;";
+                break;
+            case "Kitty!!":
+                temp += "top:66%; left:40%; width:16%; height:18%;";
+                break;
+            case "Water but Free":
+                temp += "top:84%; left:0%; width:21%; height:16%;border:";
+                break;
+            case "Cardboard Box":
+                temp += "top:31%; left:60%; width:18%; height:20%;";
                 break;
             case "Inspect Blueprints":
-                temp +=
-                    `position:absolute;
-                    color:#ffd5c9;
-                    border: 0.3vmin solid red;
-                    top:31%;
-                    left:55%;
-                    width:18%;
-                    height:20%;`;
+                temp += "top:31%; left:55%; width:18%; height:20%;";
+                break;
+            //Alley
+            case "Grab???":
+                temp += "top:95%; left:95%; width:5%; height:5%;background:0;";
+                break;
+            case "Kitty!!":
+                temp += "top:66%; left:40%; width:16%; height:18%;";
+                break;
+            case "Water but Free":
+                temp += "top:84%; left:0%; width:21%; height:16%;border:";
+                break;
+            case "Grab a Cardboard Box":
+                temp += "top:31%; left:60%; width:18%; height:20%;";
+                break;
+            //Places
+            case "Go to the Bedroom":
+                temp += "color:#ffd5c9; top:24%; left:0%; width:11%; height:65%;background:0;";
+                break;
+            case "Navigate to the Living Room":
+                temp += "color:#ffd5c9; top:92%; left:34%; width:32%; height:7%;background:0;";
+                break;
+            case "Go to the Kitchen":
+                temp += "color:#ffd5c9; top:20%; left:72%; width:20%; height:50%;background:0;";
+                break;
+            case "Enter the Washroom":
+                temp += "color:#ffd5c9; top:26%; left:22%; width:17%; height:57%;background:0;";
+                break;
+            case "Go to the Alley":
+                temp += "color:#ffd5c9; top:27%; left:63%; width:17%; height:50%;background:0;";
                 break;
             case "Jump out of the window":
-                temp +=
-                    `position:absolute;
-                    color:#ffd5c9;
-                    border: 0.3vmin solid red;
-                    top:26%;
-                    left:23%;
-                    width:14%;
-                    height:25%;`;
+                temp += "color:#ffd5c9; top:26%; left:23%; width:14%; height:25%;background:0;";
+                break;
+            case "Go to the Washroom":
+                temp += "color:#ffd5c9; top:32%; left:42%; width:11%; height:26%;background:0;";
+                break;
+            case "Go to the Living Room":
+                temp += "color:#ffd5c9; top:34%; left:76%; width:11%; height:28%;background:0;";
+                break;
+            case "Jump out of the window":
+                temp += "color:#ffd5c9; top:26%; left:23%; width:14%; height:25%;background:0;";
+                break;
+            case "Go back Inside":
+                temp += "color:#ffd5c9; top:20%; left:6%; width:14%; height:45%;background:0;";
                 break;
             default:
                 temp +=
                     `position:relative;
                     top:93%;
                     left:2%;
+                    background:0;
                     background-color: #9f9db1;
                     border: 0.3vmin solid #72708c;
                     color: #fff;
+                    font-size:2vmin;
                     align-items:top;
-                    padding:0.5vmin;
-                    opacity:1`;
+                    padding:0.5vmin;`;
                     toggleAppear = 0;
                 break;
         }
         button.style = temp;
         if (toggleAppear){
             button.addEventListener('mouseover',() => {
-                button.style.opacity = 1;
+                button.style.fontSize = "2vmin";
             });
             button.addEventListener('mouseout',() => {
-                button.style.opacity = 0;
+                button.style.fontSize = 0;
             });
         }
         button.onclick = () => {
-            while(this.actionsContainer.firstChild) {
-                this.actionsContainer.removeChild(this.actionsContainer.firstChild)
-            }
-            this.scene.handleChoice(data);
+            this.scene.handleChoice(data,button);
         }
     }
 
@@ -258,7 +301,7 @@ class Engine {
                 `opacity : 0;
                 color: `+textcolor+`;
                 animation-name: textAppear;
-                animation-delay: `+i/12+`s;
+                animation-delay: `+i/15+`s;
                 animation-duration: 0.3s;  
                 animation-fill-mode: forwards;`;
             if (x == ":" && msg[0] == "Y"){
@@ -279,7 +322,6 @@ class Engine {
             if (x == " ")
                 x = "\u2002";
             temp.textContent = x;
-            console.log(i);
             this.textbox.appendChild(temp);
         }
     }
@@ -300,6 +342,12 @@ class Engine {
         else{
             document.body.removeChild(this.actionsContainer);
             document.body.removeChild(this.header);
+            this.inventoryContainer.style = 
+                `height: 89vmin;
+                width: 36vmin;
+                position: absolute;
+                top: 11.2vmin;
+                left: 92vmin;`
             this.ui = document.createElement("div");
             this.div = document.createElement("div");
             this.ui.style = 
@@ -320,6 +368,7 @@ class Engine {
             this.div.innerHTML = "";
             this.output.appendChild(this.ui);
             this.ui.appendChild(this.div);
+            this.ui.appendChild(this.inventoryContainer);
             this.actionsContainer = this.div;
         }
     }

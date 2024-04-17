@@ -13,7 +13,8 @@
             "Choices": [
                 {
                     "Text": "Continue",
-                    "Target": "End"
+                    "Target": "End",
+                    "Item": "Cat & Bucket"
                 }
             ]
         },
@@ -98,7 +99,7 @@
             ]
         },
         "Bedroom": {
-            "Body": "You are in your bedroom. It's got a bed in it and it does loosely meet the description of a room. \n(Click on the glowy stuff to play... Or don't... I'm not your dad.)",
+            "Body": "You are in your bedroom. It's got a bed in it and it does loosely meet the description of a room. (Try clicking on things around the room- like doors to navigate... Or don't... I'm not your dad.)",
             "Image": "background1.png",
             "Choices": [
                 {
@@ -111,11 +112,26 @@
                 },
                 {
                     "Text": "Jump out of the window",
-                    "Target": "Alley"
+                    "Target": "Alley",
+                    "Require": [["House Keys","You: I probably shouldn't. Despite the ingeniousness and good clean fun of self-defenestration, I don't have my house keys on me."]]
                 },
                 {
                     "Text": "Inspect Blueprints",
-                    "Target": "Void"
+                    "Target": "Void",
+                    "Require":[
+                        ["Supercoductor","You: Blueprints on how to make a that cat thing I mentioned. Supercoductor, Low-Noise environment, Cat in a cylinder- It looks like I need awful lot of stuff for something that's basically flipping a coin blindfolded, but I'm sure I'll just find it all laying around."],
+                        ["Sound Foam","You: Blueprints on how to make a that cat thing I mentioned. Supercoductor, Low-Noise environment, Cat in a cylinder- It looks like I need awful lot of stuff for something that's basically flipping a coin blindfolded, but I'm sure I'll just find it all laying around."],
+                        ["Enclosed Cat","You: Blueprints on how to make a that cat thing I mentioned. Supercoductor, Low-Noise environment, Cat in a cylinder- It looks like I need awful lot of stuff for something that's basically flipping a coin blindfolded, but I'm sure I'll just find it all laying around."],
+                        ["Cardboard Box","You: Blueprints on how to make a that cat thing I mentioned. Supercoductor, Low-Noise environment, Cat in a cylinder- It looks like I need awful lot of stuff for something that's basically flipping a coin blindfolded, but I'm sure I'll just find it all laying around."]
+                    ]
+                },
+                {
+                    "Text":"Grab Sound Foam",
+                    "Item": "Sound Foam"
+                },
+                {
+                    "Text":"Grab Extension Cable",
+                    "Item": "Extension Cable"
                 }
             ]
         },
@@ -128,8 +144,24 @@
                     "Target": "Bedroom"
                 },
                 {
-                    "Text": "Visit the Living Room",
+                    "Text": "Navigate to the Living Room",
                     "Target": "Living Room"
+                },
+                {
+                    "Text":"A Shiny Little Something",
+                    "Item": "House Keys"
+                },
+                {
+                    "Text":"Grab Gloves but for Ovens",
+                    "Item": "Oven Mitts"
+                },
+                {
+                    "Text":"Clean the Dryer",
+                    "Item": "Dryer Lint"
+                },
+                {
+                    "Text":"Grab Rat Poison",
+                    "Item": "Rat Poison"
                 }
             ]
         },
@@ -138,7 +170,7 @@
             "Image": "background5.png",
             "Choices": [
                 {
-                    "Text": "Go back to the Bedroom",
+                    "Text": "Go to the Bedroom",
                     "Target": "Bedroom"
                 },
                 {
@@ -148,6 +180,18 @@
                 {
                     "Text": "Enter the Washroom",
                     "Target": "Washroom"
+                },
+                {
+                    "Text":"Grab Old Container Lid",
+                    "Item": "Lid"
+                },
+                {
+                    "Text":"Watch TV",
+                    "Item": "Superconductor",
+                    "Require": [
+                        ["Extension Cable","You: There's nothing good on anymore just violence in movies and s- Wait! This is a how-to series on supercoductor creation and maintenance! How convenient! Seems like the secret is a normal conductor but cold..."],
+                        ["Ice Ice Baby","You: There's nothing good on anymore just violence in movies and s- Wait! This is a how-to series on supercoductor creation and maintenance! How convenient! Seems like the secret is a normal conductor but cold..."]
+                    ]
                 }
             ]
         },
@@ -157,11 +201,29 @@
             "Choices": [
                 {
                     "Text": "Go to the Alley",
-                    "Target": "Alley"
+                    "Target": "Alley",
+                    "Require": [["House Keys","You: I'd love to go outside, but I don't have my keys and I lied I wouldn't love to go outside."]]
                 },
                 {
-                    "Text": "Tour the Living Room",
+                    "Text":"Put Something in the Freezer",
+                    "Item": "Water Tray",
+                    "Require": [["Ice Ice Baby","You: I could put something in here if I wanted to make it colder, but it can only fit a small tray roughly the size of 12 icecubes."]]
+                },
+                {
+                    "Text": "Navigate to the Living Room",
                     "Target": "Living Room"
+                },
+                {
+                    "Text":"Grab a tin of Ghoti",
+                    "Item": "Sardines"
+                },
+                {
+                    "Text":"Grab the English Lexicon",
+                    "Item": "Fridge Magnets"
+                },
+                {
+                    "Text":"Grab an Ice Tray",
+                    "Item": "Ice Tray"
                 }
             ]
         },
@@ -172,6 +234,32 @@
                 {
                     "Text": "Go back Inside",
                     "Target": "Kitchen"
+                },
+                {
+                    "Text":"Kitty!!",
+                    "Item": "Cat & Bucket",
+                    "Require": [
+                        ["Sardines","You: This cat doesn't find me interesting or friendly, probably because I intend to throw physics at it untill it dies and lives simultaneously. Rude! Maybe if I had some cat treats or something..."],
+                        ["Oven Mitts","You: OW! It scratched my hand! Ok so, note to self: it's a bad idea to go up to random stray cats and grab them... That like really hurt... I can taste the ring worm."],
+                        ["Bucket","You: Me when I freaking get you! Er- Hm I guess I didn't think this through cuz I don't have a cylindrical containment cell... I'll just put you back then."]
+                    ]
+                },
+                {
+                    "Text":"Water but Free",
+                    "Item": "Water Tray",
+                    "Require": [["Ice Tray","You: Oh hey. A puddle. Wow!"]]
+                },
+                {
+                    "Text":"Grab a Cardboard Box",
+                    "Item": "Cardboard Box"
+                },
+                {
+                    "Text":"Grab???",
+                    "Item": "Chekov's Gun"
+                },
+                {
+                    "Text":"A Bucket... Dear God",
+                    "Item": "Bucket"
                 }
             ]
         }

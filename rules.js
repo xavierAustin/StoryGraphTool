@@ -14,7 +14,10 @@ class Location extends Scene {
         let locationData = this.engine.storyData.Locations[key]; 
         this.engine.show(locationData.Image)
         this.engine.drawText(locationData.Body);
-        
+
+        if (key == "Bedroom")
+            locationData.Body = "You are in your bedroom. It's got a bed in it and it does loosely meet the description of a room.";
+
         if(locationData.Choices) {
             for(let choice of locationData.Choices) { 
                 this.engine.addChoice(choice.Text,choice); 
@@ -24,19 +27,28 @@ class Location extends Scene {
         }
     }
 
-    handleChoice(choice) {
+    handleChoice(choice,button) {
         if(choice) {
-            switch (choice.Target){
-                case "":
-                
-                case undefined:
-                    break;
-                default:
-                    this.engine.gotoScene(Location, choice.Target);
-                    break;
+            if (choice.Require){
+                for (let requirements of choice.Require){
+                    if (!this.engine.inventory.hasItem(requirements[0])){
+                        this.engine.drawText(requirements[1]);
+                        return;
+                    }
+                }
+                for (let requirements of choice.Require){
+                    if (requirements[0] == "House Keys")
+                        break;
+                    this.engine.inventory.removeItem(requirements[0]);
+                }
             }
-            if (choice.Item)
+            if (choice.Item){
                 this.engine.inventory.addItem(choice.Item);
+                button.parentNode.removeChild(button);
+                choice.Text = 0;
+            }
+            if (choice.Target)
+                this.engine.gotoScene(Location, choice.Target);
         } else {
             this.engine.gotoScene(End);
         }
