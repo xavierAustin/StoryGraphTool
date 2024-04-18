@@ -119,10 +119,12 @@
                     "Text": "Inspect Blueprints",
                     "Target": "Void",
                     "Require":[
-                        ["Supercoductor","You: Blueprints on how to make a that cat thing I mentioned. Supercoductor, Low-Noise environment, Cat in a cylinder- It looks like I need awful lot of stuff for something that's basically flipping a coin blindfolded, but I'm sure I'll just find it all laying around."],
-                        ["Sound Foam","You: Blueprints on how to make a that cat thing I mentioned. Supercoductor, Low-Noise environment, Cat in a cylinder- It looks like I need awful lot of stuff for something that's basically flipping a coin blindfolded, but I'm sure I'll just find it all laying around."],
-                        ["Enclosed Cat","You: Blueprints on how to make a that cat thing I mentioned. Supercoductor, Low-Noise environment, Cat in a cylinder- It looks like I need awful lot of stuff for something that's basically flipping a coin blindfolded, but I'm sure I'll just find it all laying around."],
-                        ["Cardboard Box","You: Blueprints on how to make a that cat thing I mentioned. Supercoductor, Low-Noise environment, Cat in a cylinder- It looks like I need awful lot of stuff for something that's basically flipping a coin blindfolded, but I'm sure I'll just find it all laying around."]
+                        ["Rat Poison","You: Blueprints on how to make a that cat thing I mentioned. Superconductor, Low-Noise environment, Cat sealed in a cylinder- It looks like I need awful lot of stuff for something that's basically flipping a coin blindfolded, but I'm sure I'll just find it all laying around."],
+                        ["Atom with Spin","You: Blueprints on how to make a that cat thing I mentioned. Superconductor, Low-Noise environment, Cat sealed in a cylinder- It looks like I need awful lot of stuff for something that's basically flipping a coin blindfolded, but I'm sure I'll just find it all laying around."],
+                        ["Superconductor","You: Blueprints on how to make a that cat thing I mentioned. Superconductor, Low-Noise environment, Cat sealed in a cylinder- It looks like I need awful lot of stuff for something that's basically flipping a coin blindfolded, but I'm sure I'll just find it all laying around."],
+                        ["Sound Foam","You: Blueprints on how to make a that cat thing I mentioned. Superconductor, Low-Noise environment, Cat sealed in a cylinder- It looks like I need awful lot of stuff for something that's basically flipping a coin blindfolded, but I'm sure I'll just find it all laying around."],
+                        ["Enclosed Cat","You: Blueprints on how to make a that cat thing I mentioned. Superconductor, Low-Noise environment, Cat sealed in a cylinder- It looks like I need awful lot of stuff for something that's basically flipping a coin blindfolded, but I'm sure I'll just find it all laying around."],
+                        ["Cardboard Box","You: Blueprints on how to make a that cat thing I mentioned. Superconductor, Low-Noise environment, Cat sealed in a cylinder- It looks like I need awful lot of stuff for something that's basically flipping a coin blindfolded, but I'm sure I'll just find it all laying around."]
                     ]
                 },
                 {
@@ -148,7 +150,7 @@
                     "Target": "Living Room"
                 },
                 {
-                    "Text":"A Shiny Little Something",
+                    "Text":"Grab Something Shiny",
                     "Item": "House Keys"
                 },
                 {
@@ -189,8 +191,15 @@
                     "Text":"Watch TV",
                     "Item": "Superconductor",
                     "Require": [
-                        ["Extension Cable","You: There's nothing good on anymore just violence in movies and s- Wait! This is a how-to series on supercoductor creation and maintenance! How convenient! Seems like the secret is a normal conductor but cold..."],
-                        ["Ice Ice Baby","You: There's nothing good on anymore just violence in movies and s- Wait! This is a how-to series on supercoductor creation and maintenance! How convenient! Seems like the secret is a normal conductor but cold..."]
+                        ["Extension Cable","You: There's nothing good on anymore, just violence in movies and s- Wait! This is a how-to series on supercoductor creation and maintenance! How convenient! Seems like the secret is a normal conductor but cold..."],
+                        ["Ice Ice Baby","You: There's nothing good on anymore, just violence in movies and s- Wait! This is a how-to series on supercoductor creation and maintenance! How convenient! Seems like the secret is a normal conductor but cold..."]
+                    ]
+                },
+                {
+                    "Text":"Inspect Paper Shredder",
+                    "Item": "Atom",
+                    "Require": [
+                        ["Dryer Lint","Thanks to the set pattern these shredders cut paper in, sensitive documents are usually trivial to reassemble! Nonetheless, it's perfect for ripping things into smaller pieces."]
                     ]
                 }
             ]
@@ -206,12 +215,27 @@
                 },
                 {
                     "Text":"Put Something in the Freezer",
-                    "Item": "Water Tray",
-                    "Require": [["Ice Ice Baby","You: I could put something in here if I wanted to make it colder, but it can only fit a small tray roughly the size of 12 icecubes."]]
+                    "Item": "Ice Ice Baby",
+                    "Require": [["Water Tray","You: I could put something in here if I wanted to make it colder, but it can only fit a small tray roughly the size of 12 icecubes."]]
                 },
                 {
                     "Text": "Navigate to the Living Room",
                     "Target": "Living Room"
+                },
+                {
+                    "Text":"Inspect Can-Closer",
+                    "Item": "Enclosed Cat",
+                    "Require": [
+                        ["Bucket Cat","You: \"Every action has an equal and opposite reaction.\" Mark Twain said that."],
+                        ["Lid","You: \"Every action has an equal and opposite reaction.\" Mark Twain said that."]
+                    ]
+                },
+                {
+                    "Text":"Inspect Can-Opener",
+                    "Item": "Wait huh? How?",
+                    "Require": [
+                        ["","A device specifically designed to open things! Ironically, I've never needed to use it."]
+                    ]
                 },
                 {
                     "Text":"Grab a tin of Ghoti",

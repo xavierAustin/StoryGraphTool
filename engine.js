@@ -8,14 +8,18 @@ class Inventory {
         this.stuff.push(item);
         let itemVisual = document.createElement("button");
         itemVisual.id = item;
-        itemVisual.style =
-            `height: 12vmin;
-            width: 12vmin;
-            background:url(items/ui/`+item+`.png);`;
         this.containter.appendChild(itemVisual);
         itemVisual.onclick = () => {
             this.engine.drawText("You: "+this.describeItem(item));
         }
+        let urlItem = ((item.replaceAll("&","and")).replaceAll(" ","")).toLowerCase()
+        console.log(urlItem);
+        itemVisual.style =
+            `height: 12vmin;
+            width: 12vmin;
+            border:0;
+            background: url(items/ui/`+urlItem+`.png);
+            background-size:100% 100%;`;
     }
     hasItem(item){
         for (let i of this.stuff){
@@ -43,11 +47,16 @@ class Inventory {
             case "Dryer Lint":
                 return "An allergy-inducing toxin produced in self-defense when humans attempt to bereave dryers of their clothing innards.";
             case "Atom with Spin":
-                this.removeItem("Atom with Spin")
-                this.addItem("Atom")
-                return "I could probably get a similar effect by flipping a coin blindfolded, but I'm broke. Also, I probably shouldn't have looked at these since observing them colapses the wave function.";
+                this.removeItem("Atom with Spin");
+                this.addItem("Atom");
+                return "I probably shouldn't have looked at these since observing them colapses the wave function.";
             case "Atom":
-                return "100 picometers of everyones favorite flavors of quarks. Perfect for splitting with a friend!";
+                if (this.hasItem("Fridge Magnets")){
+                    this.removeItem("Atom");
+                    this.addItem("Atom with Spin");
+                    return "Looks like I can use these magnets to... uh... do this! Sick.";
+                }
+                return "100 picometers of everyones favorite flavors of quarks. Perfect for splitting with a friend! If I had some magnets, I could put some spin on these (which is totally how it works mind you).";
             case "Chekov's Gun":
                 return "A loaded handgun. I'm not sure why it has the name 'Chekov' scrawled on it, or who that is, but it feels important.";
             case "Cardboard Box":
@@ -71,12 +80,12 @@ class Inventory {
             case "Bucket Cat":
                 return "Buckets hold liquids and cats are one of those! A match made in heaven!";
             case "Cat Bucket":
-                this.removeItem("Cat Bucket")
-                this.addItem("Bucket Cat")
+                this.removeItem("Cat Bucket");
+                this.addItem("Bucket Cat");
                 return "Hmm, that doesn't look quite right...";
             case "Cat & Bucket":
-                this.removeItem("Cat & Bucket")
-                this.addItem("Cat Bucket")
+                this.removeItem("Cat & Bucket");
+                this.addItem("Cat Bucket");
                 return "Man, I sure wish there was some kind of holding receptacle I could put this cat in so I wouldn't have to hold both it and this bucket... Wait, I have an idea!";
             case "Lid":
                 return "This is a lid to an old tupperware container I had. I don't have the container part since there was a big bug on it once, and so I took the most reasonable course of action: I threw the whole thing out the window and then went outside and lit it on fire.";
@@ -153,7 +162,7 @@ class Engine {
             `position:absolute;
             color:#d0ffe2;
             background-color: transparent;
-            background:url("items/playarea/shimmer.png");
+            background: url("items/playarea/shimmer.png");
             border: 0;
             font-family: 'Comic Sans MS','Chalkboard SE', 'Comic Neue',cursive;
             font-size:0vmin;
@@ -173,6 +182,16 @@ class Engine {
                 0.2vmin -0.2vmin  0 #72708c;`;
         switch (action){
             //Things & Interactable Elements
+            //kitchen
+            case "Put Something in the Freezer":
+                temp += "top:31%; left:55%; width:18%; height:20%;background:0;";
+                break;
+            case "Inspect Can-Closer":
+                temp += "top:72%; left:79%; width:18%; height:20%;";
+                break;
+            case "Inspect Can-Opener":
+                temp += "top:62%; left:79%; width:18%; height:10%;";
+                break;
             //bedroom
             case "Inspect Blueprints":
                 temp += "top:31%; left:55%; width:18%; height:20%;";
@@ -201,10 +220,13 @@ class Engine {
                 temp += "top:66%; left:40%; width:16%; height:18%;";
                 break;
             case "Water but Free":
-                temp += "top:84%; left:0%; width:21%; height:16%;border:";
+                temp += "top:84%; left:0%; width:21%; height:16%;";
                 break;
             case "Grab a Cardboard Box":
                 temp += "top:31%; left:60%; width:18%; height:20%;";
+                break;
+            case "A Bucket... Dear God":
+                temp += "top:72%; left:74%; width:18%; height:20%;";
                 break;
             //Places
             case "Go to the Bedroom":
