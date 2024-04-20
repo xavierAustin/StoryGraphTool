@@ -184,17 +184,20 @@ class Engine {
             //Things & Interactable Elements
             //kitchen
             case "Put Something in the Freezer":
-                temp += "top:31%; left:55%; width:18%; height:20%;background:0;";
+                temp += "top:35%; left:35%; width:18%; height:20%;background:0;";
                 break;
             case "Inspect Can-Closer":
-                temp += "top:72%; left:79%; width:18%; height:20%;";
+                temp += "top:72%; left:79%; width:18%; height:20%;background:0;";
                 break;
             case "Inspect Can-Opener":
-                temp += "top:62%; left:79%; width:18%; height:10%;";
+                temp += "top:62%; left:79%; width:18%; height:10%;background:0;";
+                break;
+            case "Inspect Can-Opener":
+                temp += "top:62%; left:79%; width:18%; height:10%;background:0;";
                 break;
             //bedroom
             case "Inspect Blueprints":
-                temp += "top:31%; left:55%; width:18%; height:20%;";
+                temp += "top:31%; left:55%; width:18%; height:20%;background:0;";
                 break;
             //Washroom
             case "???":
@@ -208,9 +211,6 @@ class Engine {
                 break;
             case "Cardboard Box":
                 temp += "top:31%; left:60%; width:18%; height:20%;";
-                break;
-            case "Inspect Blueprints":
-                temp += "top:31%; left:55%; width:18%; height:20%;";
                 break;
             //Alley
             case "Grab???":
