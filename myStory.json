@@ -99,7 +99,7 @@
             ]
         },
         "Bedroom": {
-            "Body": "You are in your bedroom. It's got a bed in it and it does loosely meet the description of a room. (Try clicking on things around the room- like doors to navigate... Or don't... I'm not your dad.)",
+            "Body": "You are in your bedroom. It's got a bed in it and it does loosely meet the description of a room. (If you're ever stuck, try clicking on things around the room or items in your inventory- like doors to navigate... Or don't... I'm not your dad.)",
             "Image": "background1.png",
             "Choices": [
                 {
@@ -233,17 +233,16 @@
                 },
                 {
                     "Text":"Inspect Can-Opener",
-                    "Item": "Wait huh? How?",
                     "Require": [
-                        ["","A device specifically designed to open things! Ironically, I've never needed to use it."]
+                        ["","You: A device specifically designed to open things! Ironically, I've never needed to use it."]
                     ]
                 },
                 {
-                    "Text":"Grab a tin of Ghoti",
+                    "Text":"Grab some Sardines",
                     "Item": "Sardines"
                 },
                 {
-                    "Text":"Grab the English Lexicon",
+                    "Text":"Grab some Fridge Magnets",
                     "Item": "Fridge Magnets"
                 },
                 {
@@ -253,7 +252,7 @@
             ]
         },
         "Alley": {
-            "Body": "This is the alley way outside your house. It wasn't this messy- was it? You can't really say; you don't get out much. Oh hey there's a cat here!",
+            "Body": "This is the alley way outside your house. It wasn't this messy- was it? You can't really say; you don't get out much.",
             "Image": "background3.png",
             "Choices": [
                 {
@@ -280,7 +279,7 @@
                 },
                 {
                     "Text":"Grab???",
-                    "Item": "Chekov's Gun"
+                    "Item": "Chekovs Gun"
                 },
                 {
                     "Text":"A Bucket... Dear God",
