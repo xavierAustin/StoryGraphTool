@@ -8,7 +8,8 @@ class Engine {
 
         this.firstSceneClass = firstSceneClass;
         this.storyDataUrl = storyDataUrl;
-
+        
+        //added code to handle the inventory
         this.inventoryContainer = document.createElement("div");
         this.inventory = new Inventory(this.inventoryContainer,this);
 
@@ -77,7 +78,7 @@ class Engine {
 
     drawText(msg){
         //added to display text because i modified show to display images
-        //im a profesional!
+        //im an adept programmer!
         if (this.textbox)
             while (this.textbox.firstChild){
                 this.textbox.removeChild(this.textbox.firstChild)
@@ -98,6 +99,7 @@ class Engine {
         let i = 1;   
         let textcolor = "#fff";
         let asteriskFlag = 1;
+        //handles animating the text to draw
         for (let indexOfMsg = 0; indexOfMsg < msg.length; indexOfMsg ++){
             let x = msg[indexOfMsg]
             let temp = document.createElement("span");
@@ -108,6 +110,7 @@ class Engine {
                 animation-delay: `+i/15+`s;
                 animation-duration: 0.3s;  
                 animation-fill-mode: forwards;`;
+            //colors text based on who's talking
             if (x == ":" && msg[0] == "Y"){
                 textcolor = "#d0ffe2";
             }else if (x == ":" && msg[0] == "C"){
@@ -115,12 +118,11 @@ class Engine {
             }else if (x == ":" && msg[0] == "D"){
                 textcolor = "#dac7ff";
             }
+            //makes text bookended by asterisks appear immediately; delays text by 1/15 a second otherwise
             asteriskFlag ^= (x == "*");
             i += (asteriskFlag&(x != " "));
-            //so all this does is add a pause to the text appearing when there's punctuation so the text reads more fluidly
-            //but it turns out there's a lot of edge cases for that to appear fluid >->
-            //it basically just boils down to if the punctuation ends a 'thought' then it pauses
-            //periods always cause this since elipsies should be drawn out as long as possible for maximum annoyance
+            //this is where I wouldve added the player bobbing up and down if I didn't decide against it (run out of time)
+            //delays text by 6/15 a second if punctiuation appear in a way that closes 'a thought'
             if ((msg[indexOfMsg+1] == " " || msg[indexOfMsg+1] == "\"") && (x == "," || x == ":" || x == "-" || x == ";" || x == "?" || x == "!") || x == ".")
                 i += 5*(asteriskFlag&(x != " "));
             if (x == " ")
@@ -133,6 +135,7 @@ class Engine {
     show(img) {
         //modified to only update the div element rather then append new ones every passage
         //also modified to display images rather than text
+        //it also removes the title and moves some of the divs around to places that make a little more sense with images in mind
         if (this.div)
             this.div.style = 
                 `height: 68%;

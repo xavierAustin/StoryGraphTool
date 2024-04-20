@@ -5,6 +5,7 @@ class Inventory {
         this.engine = engine;
     }
     addItem(item){
+        //adds item name to inventory.stuff and also adds a button to the inventory container
         this.stuff.push(item);
         let itemVisual = document.createElement("button");
         itemVisual.id = item;
@@ -21,6 +22,7 @@ class Inventory {
             background-size:100% 100%;`;
     }
     hasItem(item){
+        //checks for an item name in the inventory; returns bool
         for (let i of this.stuff){
             if (i == item)
                 return true;
@@ -28,6 +30,7 @@ class Inventory {
         return false;
     }
     removeItem(item){
+        //removes an item name from inventory.stuff AND removes the designated button (inefficient but acceptable)
         let temp = []
         for (let i of this.stuff){
             if (i != item)
@@ -39,6 +42,9 @@ class Inventory {
             itemVisual.parentNode.removeChild(itemVisual);
     }
     describeItem(item){
+        //describes an item based on an item name; called when the button for a given item is clicked
+        //really poorly done!
+        //I could've just added it to the .json but oh well
         switch(item){
             case "House Keys":
                 return "Like normal keys but house-y-er!";
@@ -115,6 +121,7 @@ class Location extends Scene {
         this.engine.show(locationData.Image)
         this.engine.drawText(locationData.Body);
 
+        //remove tutorial text
         if (key == "Bedroom")
             locationData.Body = "You are in your bedroom. It's got a bed in it and it does loosely meet the description of a room.";
 
@@ -232,10 +239,10 @@ function StyleButton(action){
                 style += "top:84%; left:0%; width:21%; height:16%;background:0;";
                 break;
             case "Grab a Cardboard Box":
-                style += "top:31%; left:60%; width:18%; height:20%;";
+                style += "top:34%; left:60%; width:23%; height:24%;background-image: url('items/playarea/box.png')";
                 break;
             case "A Bucket... Dear God":
-                style += "top:72%; left:74%; width:18%; height:20%;";
+                style += "top:72%; left:74%; width:18%; height:20%;;background-image: url('items/playarea/bucket.png')";
                 break;
             //Transitions
             //Bathroom & Living Room
