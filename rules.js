@@ -215,7 +215,7 @@ function StyleButton(action){
                 style += "top:62%; left:65%; width:14%; height:18%;background:0;";
                 break;
             case "Grab Old Container Lid":
-                style += "top:62%; left:65%; width:14%; height:18%;background:0;";
+                style += "top:92%; left:65%; width:28%; height:7%;background-position: center;";
                 break;
             //Bedroom
             case "Inspect Blueprints":
